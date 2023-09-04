@@ -1,0 +1,115 @@
+body {
+    font-family: 'Poppins', sans-serif;
+}
+
+:root {
+    --primary: #008af8;
+    --secondary: #ee626b;
+}
+
+.container {
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+.hero {
+    background-image: url(./images/banner-bg.jpg);
+}
+
+#checkbox {
+    display: none;
+}
+
+.toggle {
+    position: relative;
+    width: 40px;
+    height: 40px;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    transition-duration: .3s;
+}
+
+.bars {
+    width: 100%;
+    height: 4px;
+    background-color: white;
+    border-radius: 5px;
+    transition-duration: .3s;
+}
+
+#checkbox:checked+.toggle .bars {
+    margin-left: 13px;
+}
+
+#checkbox:checked+.toggle #bar2 {
+    transform: rotate(135deg);
+    margin-left: 0;
+    transform-origin: center;
+    transition-duration: .3s;
+}
+
+#checkbox:checked+.toggle #bar1 {
+    transform: rotate(45deg);
+    transition-duration: .3s;
+    transform-origin: left center;
+}
+
+#checkbox:checked+.toggle #bar3 {
+    transform: rotate(-45deg);
+    transition-duration: .3s;
+    transform-origin: left center;
+}
+
+@media (max-width: 768px) {
+    .show {
+        height: 232px !important;
+    }
+}
+
+.fixed {
+    position: fixed !important;
+    background-color: #0071f8;
+    border-radius: 0px 0px 25px 25px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.15) !important;
+    padding: 1rem !important;
+    animation: fixedAnimation .5s;
+    transition: .5s;
+}
+
+@keyframes fixedAnimation {
+    from {
+        top: 20px;
+        opacity: .5;
+    }
+
+    to {
+        top: 0;
+        opacity: 1;
+    }
+}
+
+@media (min-width: 768px) {
+    .active {
+        background-color: #ffffff1a;
+    }
+}
+
+@media (min-width: 1024px) {
+    .bottom::before {
+        content: '';
+        position: absolute;
+        left: 50%;
+        top: 0;
+        translate: -50% 0;
+        background-image: url(./images/cta-bg.jpg);
+        background-repeat: no-repeat;
+        z-index: -1;
+        width: 550px;
+        height: 100%;
+        border-radius: 1.5rem;
+    }
+}
